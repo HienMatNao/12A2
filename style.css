@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./image/Black.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- Menu Điều Hướng --- */
+#main-nav {
+    background-color: rgba(30, 30, 30, 0.9);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#main-nav ul {
+    list-style: none;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+#main-nav ul li {
+    display: inline-block;
+    position: relative;
+}
+
+#main-nav ul li a {
+    display: block;
+    padding: 18px 25px;
+    color: #ddd;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 400;
+}
+
+#main-nav ul li a:hover,
+#main-nav ul li a.active {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Dropdown */
+.dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #222;
+    min-width: 119px;
+    display: none;
+    text-align: left;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    border-radius: 0 0 8px 8px;
+}
+
+.dropdown li {
+    display: block !important;
+}
+
+.dropdown li a {
+    padding: 12px 20px !important;
+    font-size: 14px;
+    border-bottom: 1px solid #333;
+}
+
+#main-nav ul li:hover .dropdown {
+    display: block;
+}
+
+/* --- Đồng hồ --- */
+.main-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+#clock {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    padding: 40px 60px;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+.welcome-msg {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.2rem;
+    font-weight: 300;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+#time {
+    font-size: clamp(60px, 12vw, 110px);
+    color: white;
+    font-weight: 600;
+    line-height: 1;
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+}
+
+#date {
+    margin-top: 15px;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* --- FOOTER --- */
+.footer-dark {
+    background-color: #15181b;
+    padding: 50px 0 20px;
+    margin-top: 80px;
+}
+
+.footer-dark h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-links li a:hover {
+    color: #fff;
+}
+
+.social-icons {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.social-icons a {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    display: inline-block;
+    border: 1px solid #444;
+    border-radius: 50%;
+    margin: 0 8px;
+    color: white;
+    transition: 0.3s;
+}
+
+.social-icons a:hover {
+    background: #fff;
+    color: #000;
+    transform: translateY(-3px);
+}
+
+.copyright {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 12px;
+    color: #555;
+}

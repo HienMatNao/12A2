@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: url('./image/Black.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+}
+
+/* --- Menu Điều Hướng (Giữ nguyên phong cách của bạn) --- */
+#main-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    text-align: center;
+}
+
+#main-nav ul li {
+    display: inline-block;
+    position: relative;
+}
+
+#main-nav ul li a {
+    display: block;
+    padding: 18px 25px;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+#main-nav ul li a:hover,
+.active {
+    background-color: #3498db;
+}
+
+/* Dropdown */
+.dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #222;
+    min-width: 110px;
+    display: none;
+    z-index: 100;
+}
+
+#main-nav ul li:hover>.dropdown {
+    display: block;
+}
+
+/* --- Cấu trúc Grid Phương Pháp --- */
+.schedule {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+/* Thẻ Phương Pháp (Glassmorphism) */
+.method-card {
+    background: rgba(255, 255, 255, 0.1);
+    /* Màu trắng trong suốt */
+    backdrop-filter: blur(10px);
+    /* Làm mờ nền */
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 25px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.method-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.method-header .badge {
+    background: #3498db;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 50px;
+    font-size: 12px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.method-header h1 {
+    font-size: 1.6rem;
+    color: #ff6a00;
+    /* Màu cam nổi bật */
+    margin-top: 10px;
+    font-weight: 600;
+}
+
+.method-header i {
+    margin-right: 10px;
+}
+
+.method-body p {
+    font-size: 16px;
+    color: #eee;
+    line-height: 1.8;
+    margin-top: 15px;
+}
+
+/* --- FOOTER --- */
+.footer-dark {
+    background-color: #15181b;
+    padding: 50px 0 20px;
+    margin-top: 80px;
+}
+
+.footer-dark h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li a {
+    color: #888;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-links li a:hover {
+    color: #fff;
+}
+
+.social-icons {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.social-icons a {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    display: inline-block;
+    border: 1px solid #444;
+    border-radius: 50%;
+    margin: 0 8px;
+    color: white;
+    transition: 0.3s;
+}
+
+.social-icons a:hover {
+    background: #fff;
+    color: #000;
+    transform: translateY(-3px);
+}
+
+.copyright {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 12px;
+    color: #555;
+}
+
+/* --- Responsive --- */
+@media (max-width: 992px) {
+    .schedule {
+        grid-template-columns: 1fr;
+    }
+}
