@@ -198,3 +198,58 @@ body {
     font-size: 12px;
     color: #555;
 }
+
+/* --- Form Chọn Môn Thi (Glassmorphism) --- */
+.exam-selection-form {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 40px;
+    margin-top: 50px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.form-group label {
+    color: #e67e22;
+    font-weight: 600;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.subject-option {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    transition: 0.3s;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+
+.subject-option:hover {
+    background: rgba(230, 126, 34, 0.2);
+    border-color: #e67e22;
+}
+
+.subject-option input {
+    margin-right: 10px;
+}
+
+.submit-btn {
+    background: linear-gradient(45deg, #e67e22, #d35400);
+    border: none;
+    padding: 12px 30px;
+    border-radius: 50px;
+    color: white;
+    font-weight: bold;
+    width: 100%;
+    margin-top: 20px;
+    transition: 0.3s;
+}
+
+.submit-btn:hover {
+    transform: scale(1.02);
+    box-shadow: 0 5px 15px rgba(230, 126, 34, 0.4);
+}

@@ -13,6 +13,7 @@
       href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
     />
     <link rel="stylesheet" href="./Test.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </head>
   <body>
     <nav id="main-nav">
@@ -113,6 +114,86 @@
           </div>
         </div>
       </section>
+      <section class="container mb-5">
+        <div class="exam-selection-form">
+          <h2 class="section-title">
+            <i class="fas fa-check-square"></i> Đăng Ký Môn Thi Tốt Nghiệp 2026
+          </h2>
+          <p class="text-light mb-4">
+            Chọn các môn bạn dự định sẽ thi để nhận lộ trình ôn tập riêng biệt.
+          </p>
+
+          <form id="examForm">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Môn bắt buộc (Theo quy chế mới)</label>
+                  <div class="subject-option">
+                    <input type="checkbox" checked disabled /> Toán học (Bắt
+                    buộc)
+                  </div>
+                  <div class="subject-option">
+                    <input type="checkbox" checked disabled /> Ngữ văn (Bắt
+                    buộc)
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Chọn 2 môn tự chọn</label>
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="subject-option">
+                        <input type="checkbox" name="sub" value="Lý" /> Vật lý
+                      </div>
+                      <div class="subject-option">
+                        <input type="checkbox" name="sub" value="Hóa" /> Hóa học
+                      </div>
+                      <div class="subject-option">
+                        <input type="checkbox" name="sub" value="Sinh" /> Sinh
+                        học
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="subject-option">
+                        <input type="checkbox" name="sub" value="Anh" /> Tiếng
+                        Anh
+                      </div>
+                      <div class="subject-option">
+                        <input type="checkbox" name="sub" value="Sử" /> Lịch sử
+                      </div>
+                      <div class="subject-option">
+                        <input type="checkbox" name="sub" value="Địa" /> Địa lý
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row mt-3">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label>Thông tin thí sinh</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    style="
+                      background: rgba(255, 255, 255, 0.1);
+                      border: none;
+                      color: white;
+                    "
+                    placeholder="Họ và tên học sinh"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <button type="submit" class="submit-btn">XÁC NHẬN ĐĂNG KÝ</button>
+          </form>
+        </div>
+      </section>
     </div>
 
     <footer class="footer-dark">
@@ -147,4 +228,50 @@
       </div>
     </footer>
   </body>
+  <script>
+    document
+      .getElementById("examForm")
+      .addEventListener("submit", function (e) {
+        e.preventDefault(); // Ngăn trang web load lại khi nhấn nút
+
+        // Lấy danh sách các môn tự chọn đã tích
+        const selectedSubjects = [];
+        const checkboxes = document.querySelectorAll(
+          'input[name="sub"]:checked',
+        );
+        checkboxes.forEach((checkbox) => {
+          selectedSubjects.push(checkbox.value);
+        });
+
+        // Kiểm tra điều kiện (ví dụ: yêu cầu chọn ít nhất 1 môn)
+        if (selectedSubjects.length === 0) {
+          Swal.fire({
+            title: "Lỗi rồi!",
+            text: "Bạn vui lòng chọn ít nhất một môn tự chọn nhé.",
+            icon: "warning",
+            background: "rgba(30, 30, 30, 0.9)",
+            color: "#fff",
+            confirmButtonColor: "#e67e22",
+          });
+          return;
+        }
+
+        // Hiển thị thông báo thành công
+        Swal.fire({
+          title: "Đăng ký thành công!",
+          html: `Hệ thống đã ghi nhận các môn thi của bạn:<br><b>Toán, Ngữ Văn, ${selectedSubjects.join(", ")}</b><br><br>Chúc bạn ôn tập thật tốt cho kỳ thi 2026!`,
+          icon: "success",
+          background: "rgba(25, 25, 25, 0.95)", // Nền tối mờ đồng bộ với web
+          color: "#fff",
+          confirmButtonText: "Tuyệt vời!",
+          confirmButtonColor: "#e67e22",
+          backdrop: `
+                rgba(230, 126, 34, 0.2)
+                url("https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJndXIzZ3R4bmR4Z3R4Z3R4Z3R4Z3R4Z3R4Z3R4Z3R4Z3R4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/l0HlHFRbmaZtBRhXG/giphy.gif")
+                left top
+                no-repeat
+            `, // Hiệu ứng pháo hoa nhẹ khi hiện thông báo
+        });
+      });
+  </script>
 </html>
